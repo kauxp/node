@@ -53,12 +53,15 @@ const http= require('http')
 const server= http.createServer((req, res)=>{
     res.setHeader('Content-Type', 'text/html')
     res.write('<html><head><title> js class </title> </head> <body>')
-    res.write('<h1> Hello world </h1>')
+    if(req.url==='/login'){
+        res.write('<h1> Hello login !</h1>')
+    }
+    else res.write('<h1> Hello world !</h1>')
     res.write('</body></html>')
     res.end()
 })
 
-const port = 3000
+const port = 3001
 const host= 'localhost'
 server.listen(port, host, ()=>{
     console.log(`server running at http://${host}:${port}`)
