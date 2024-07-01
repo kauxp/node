@@ -1,6 +1,6 @@
 const fs= require('fs')
-const data= fs.readFileSync('file.txt')
-console.log(""+ data);
+const data= fs.readFileSync('index.html', 'utf-8')
+// console.log(""+ data);
 
 // fs.writeFile('file.txt', "Hello world !", 'utf-8', (err)=>{
 //     console.log('file modified')
@@ -55,6 +55,9 @@ const server= http.createServer((req, res)=>{
     res.write('<html><head><title> js class </title> </head> <body>')
     if(req.url==='/login'){
         res.write('<h1> Hello login !</h1>')
+    }
+    else if(req.url==='/index'){
+        res.write(data)
     }
     else res.write('<h1> Hello world !</h1>')
     res.write('</body></html>')
